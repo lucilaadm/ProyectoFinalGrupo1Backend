@@ -9,6 +9,7 @@ import { post_userValidationSchema } from '../../helpers/validationsSchemas/user
 export const userRouter = express.Router();
 
 // GET ----------------------------
+// /api/v1/users/
 userRouter.get(
   '/',
   /* isAuthenticated, isAdmin, */ Users.GetController.getUsers,
@@ -16,6 +17,7 @@ userRouter.get(
 
 // POST ----------------------------
 // /api/v1/users/
+// body-> firstname, lastname, username and isAdmin
 userRouter.post(
   '/',
   (req, res, next) => validateBody(req, res, next, post_userValidationSchema),

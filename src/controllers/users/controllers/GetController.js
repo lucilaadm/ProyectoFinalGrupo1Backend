@@ -5,7 +5,6 @@ export class GetController {
   static async getUsers(_, res) {
     try {
       const data = await UsersModel.find({
-        // Criterio de búsqueda
         isActive: true,
       });
 
