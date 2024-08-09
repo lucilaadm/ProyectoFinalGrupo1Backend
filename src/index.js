@@ -1,8 +1,8 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-//import './database/database.js';
-//import { mainRouter } from './routers/mainRouter.js';
+// import './database/database.js';
+// import { mainRouter } from './routers/mainRouter.js';
 
 console.clear();
 console.log('Inicializando servidor');
@@ -26,7 +26,7 @@ app.use('/api/v1/prueba', (req, res) => {
 });
 
 // al crear la primer API y publicar su reura modificar el punto 4 con
-//app.use('/api/v1', mainRouter);
+// app.use('/api/v1', mainRouter);
 
 // 5. Loop del servidor
 app.listen(PORT, () => {
