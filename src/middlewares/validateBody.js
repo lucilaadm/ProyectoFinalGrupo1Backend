@@ -1,4 +1,3 @@
-/*
 import HttpCodes from 'http-status-codes';
 
 export const validateBody = (req, res, next, validationSchema) => {
@@ -18,4 +17,3 @@ export const validateBody = (req, res, next, validationSchema) => {
 
   next();
 };
-*/
