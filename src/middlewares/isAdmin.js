@@ -1,4 +1,3 @@
-/*
 import HttpCodes from 'http-status-codes';
 
 export const isAdmin = (req, res, next) => {
@@ -7,11 +6,10 @@ export const isAdmin = (req, res, next) => {
   if (!user.isAdmin) {
     res.status(HttpCodes.FORBIDDEN).json({
       data: null,
-      message: 'No tienes permiso para acceder a este recurso',
+      message: 'No tienes permiso para acceder a esta función',
     });
     return;
   }
 
   next();
 };
-*/
