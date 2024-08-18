@@ -1,4 +1,3 @@
-/*
 import HttpCodes from 'http-status-codes';
 
 import UserModel from '../../../models/userSchema.js';
@@ -36,4 +35,3 @@ export class PutController {
     }
   }
 }
-*/

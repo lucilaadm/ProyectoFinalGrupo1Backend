@@ -16,11 +16,11 @@ export const post_put_userValidationSchema = Joi.object({
     'any.required': "El campo 'lastname' es requerido",
     '*': "El campo 'lastname' tiene algún error",
   }),
-  username: Joi.string().trim().min(3).max(20).required().messages({
-    'string.min': "El campo 'username' debe tener como mínimo 3 caracteres",
-    'string.max': "El campo 'username' debe tener como maximo 20 caracteres",
-    'any.required': "El campo 'username' es requerido",
-    '*': "El campo 'username' tiene algún error",
+  email: Joi.string().trim().min(3).max(20).required().messages({
+    'string.min': "El campo 'email' debe tener como mínimo 3 caracteres",
+    'string.max': "El campo 'email' debe tener como maximo 20 caracteres",
+    'any.required': "El campo 'email' es requerido",
+    '*': "El campo 'email' tiene algún error",
   }),
   // Es lo mismo usar .pattern()
   password: Joi.string().trim().regex(passwordRegex).required().messages({
