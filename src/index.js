@@ -2,7 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import './database/database.js';
-import { mainRouter } from './routers/mainRouter.js';
+import { mainRouter } from './routes/mainRouter.js';
 
 console.clear();
 console.log('👌 Inicializando servidor');
