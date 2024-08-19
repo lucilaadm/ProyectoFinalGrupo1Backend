@@ -11,7 +11,7 @@ export class PostController {
 
     try {
       const user = await UserModel.findOne({
-        username: body.username,
+        email: body.email,
         isActive: true,
       });
 
@@ -28,7 +28,7 @@ export class PostController {
           id: user._doc._id,
           firstname: user._doc.firstname,
           lastname: user._doc.lastname,
-          username: user._doc.username,
+          email: user._doc.email,
           isAdmin: user._doc.isAdmin,
         },
       };
@@ -41,6 +41,7 @@ export class PostController {
         data: token,
         message: 'Log in exitoso',
       });
+      console.log('Token enviado al cliente:', token);
     } catch (e) {
       internalError(res, e, 'Ocurrió un error intentando iniciar sesión');
     }

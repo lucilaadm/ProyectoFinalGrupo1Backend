@@ -13,7 +13,7 @@ export class PostController {
     const newUser = new UserModel({
       firstname: body.firstname,
       lastname: body.lastname,
-      username: body.username,
+      email: body.email,
       password: hashedPassword,
     });
 

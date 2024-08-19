@@ -13,7 +13,7 @@ export class GetController {
           id: user._doc._id,
           firstname: user.firstname,
           lastname: user.lastname,
-          username: user.username,
+          email: user.email,
           isAdmin: user.isAdmin,
         };
       });
