@@ -12,6 +12,10 @@ export const userRouter = express.Router();
 // /api/v1/users/
 userRouter.get('/', isAuthenticated, isAdmin, Users.GetController.getUsers);
 
+// GET Email----------------------------
+// /api/v1/users/check-email
+userRouter.get('/check-email', Users.GetEmailController.checkEmailExists);
+
 // POST ----------------------------
 // /api/v1/users/ --> body= firstname, lastname, username and isAdmin
 userRouter.post(
