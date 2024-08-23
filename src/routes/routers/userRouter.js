@@ -29,8 +29,9 @@ userRouter.post(
 userRouter.put(
   '/:id',
   isAuthenticated,
-  isAdmin,
-  (req, res, next) =>
+  /* 
+ (req, res, next) =>
     validateBody(req, res, next, post_put_userValidationSchema),
+ */
   Users.PutController.putUser,
 );
