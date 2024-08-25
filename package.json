@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "esbuild src/index.js --bundle --platform=node --outfile=dist/index.cjs --minify",
-    "start": "node --env-file=.env dist/index.cjs",
+    "start": "node --env-file=.env dist/index.js",
     "dev": "node --watch --env-file=.env src/index.js",
     "lint": "eslint . --fix"
   },
@@ -30,7 +30,8 @@
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.4"
   },
   "devDependencies": {
     "esbuild": "^0.23.0",
