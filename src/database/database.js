@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+const { MONGODB_URI } = process.env;
 const URI= process.env.MONGODB_URI
 const db= process.env.MONGODB_DB
 
