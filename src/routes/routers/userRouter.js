@@ -30,12 +30,4 @@ userRouter.post(
 );
 
 // PUT ----------------------------
-userRouter.put(
-  '/:id',
-  isAuthenticated,
-  /* 
- (req, res, next) =>
-    validateBody(req, res, next, post_put_userValidationSchema),
- */
-  Users.PutController.putUser,
-);
+userRouter.put('/:id', isAuthenticated, Users.PutController.putUser);

@@ -9,18 +9,13 @@ export class GetIdController {
     } = req;
 
     try {
-      // Buscar el usuario por ID
       const user = await UserModel.findById(id);
-
-      // Verificar si el usuario existe
       if (!user) {
         return res.status(HttpCodes.NOT_FOUND).json({
           data: null,
           message: 'Usuario no encontrado',
         });
       }
-
-      // Devolver el usuario encontrado
       res.json({
         data: user,
         message: 'Usuario encontrado',
