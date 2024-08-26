@@ -25,7 +25,6 @@ app.use(cors());
 
 // 4. Rutas
 app.use('/api/v1', mainRouter);
-app.use('/api/v1/orders', orderRouter);
 
 // 5. Conexión a la base de datos
 mongoose.connect(process.env.MONGODB_URI)
