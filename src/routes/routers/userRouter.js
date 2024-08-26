@@ -12,9 +12,13 @@ export const userRouter = express.Router();
 // /api/v1/users/
 userRouter.get('/', isAuthenticated, isAdmin, Users.GetController.getUsers);
 
-// GET Email----------------------------
+// GET User by Email----------------------------
 // /api/v1/users/check-email
 userRouter.get('/check-email', Users.GetEmailController.checkEmailExists);
+
+// GET User by ID----------------------------
+// /api/v1/users/check-email
+userRouter.get('/:id', isAuthenticated, Users.GetIdController.getUserById);
 
 // POST ----------------------------
 // /api/v1/users/ --> body= firstname, lastname, username and isAdmin
@@ -26,11 +30,4 @@ userRouter.post(
 );
 
 // PUT ----------------------------
-userRouter.put(
-  '/:id',
-  isAuthenticated,
-  isAdmin,
-  (req, res, next) =>
-    validateBody(req, res, next, post_put_userValidationSchema),
-  Users.PutController.putUser,
-);
+userRouter.put('/:id', isAuthenticated, Users.PutController.putUser);

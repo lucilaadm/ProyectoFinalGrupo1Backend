@@ -11,11 +11,9 @@ export const authRouter = express.Router();
 authRouter.post(
   '/login',
   (req, res, next) => {
-    console.log('Validating login body...');
     validateBody(req, res, next, post_loginValidationSchema);
   },
   (req, res, next) => {
-    console.log('Calling PostController.postLogin...');
     Auth.PostController.postLogin(req, res, next);
   },
 );

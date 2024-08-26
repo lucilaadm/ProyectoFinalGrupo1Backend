@@ -1,3 +1,4 @@
+import HttpCodes from 'http-status-codes';
 import UsersModel from '../../../models/userSchema.js';
 import { internalError } from '../../../helpers/helpers.js';
 
@@ -8,7 +9,7 @@ export class GetEmailController {
       const { email } = req.query;
 
       if (!email) {
-        return res.status(400).json({
+        return res.status(HttpCodes.BAD_REQUEST).json({
           data: null,
           message: 'Correo electrónico es requerido',
         });
@@ -17,7 +18,7 @@ export class GetEmailController {
       const user = await UsersModel.findOne({ email, isActive: true });
 
       res.json({
-        exists: !!user, // Retorna true si el usuario existe, de lo contrario false
+        exists: !!user,
         message: user ? 'Correo ya registrado' : 'Correo disponible',
       });
     } catch (e) {

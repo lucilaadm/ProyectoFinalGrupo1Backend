@@ -9,8 +9,6 @@ export class PostController {
   static async postLogin(req, res) {
     const { body } = req;
 
-    console.log(body);
-
     try {
       const user = await UserModel.findOne({
         email: body.email,
@@ -18,9 +16,6 @@ export class PostController {
       });
 
       if (!user || !bcryptjs.compareSync(body.password, user.password)) {
-        console.log(user);
-        console.log(body.password, user.password);
-
         res.status(HttpCodes.UNAUTHORIZED).json({
           data: null,
           message: 'Usuario y/o contraseña incorrectos',
@@ -46,7 +41,6 @@ export class PostController {
         data: token,
         message: 'Log in exitoso',
       });
-      console.log('Token enviado al cliente:', token);
     } catch (e) {
       internalError(res, e, 'Ocurrió un error intentando iniciar sesión');
     }
