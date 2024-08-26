@@ -63,7 +63,24 @@ La tabla a continuación detalla los endpoints disponibles para cada servicio de
 | GET    | /        | ❌        | ❌             | Obtiene todos los productos    | -                                                                                      |
 | POST   | /        | ✅        | ✅             | Crea un nuevo producto         | `{ "name": string, "imageUrl": string, "price": number, "description": string, "available": boolean, "ingredients": string, "category": string }` |
 | PUT    | /:id     | ✅        | ✅             | Actualiza un producto por su id | `{ "name"?: string, "price"?: number, "description"?: string, "ingredients"?: string, "category"?: string }` |
-| DELETE | /:id     | ✅        | ✅             | Elimina un producto por su id  | -                                                                                      |
+| DELETE | /:id     | ✅        | ✅             | Elimina un producto por su id  | -  
+
+### Consultas
+**Ruta principal:** `/api/v1/consultas`
+
+| Método | Endpoint | Protegido | Debe ser Admin | Descripción              | Body                                                                                  |
+|--------|----------|-----------|----------------|--------------------------|---------------------------------------------------------------------------------------|
+| POST   | /        | ❌        | ❌             | Envía una consulta o comentario | `{ "firstname": string, "lastname": string, "email": string, "consult": string }`      |
+
+#### Ejemplo de Request
+
+```json
+{
+    "firstname": "Ignacio",
+    "lastname": "Lencina",
+    "email": "nacholencina60@gmail.com",
+    "consult": "La comida estaba riquisima muchas gracias"
+}                                                                                    |
 
 ## Equipo
 
