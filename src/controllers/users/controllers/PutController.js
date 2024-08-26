@@ -12,7 +12,6 @@ export class PutController {
     } = req;
 
     try {
-      // Verifica que el usuario tenga autorización para editar
       if (!req.user || req.user.id !== id) {
         return res.status(401).json({ message: 'No autorizado' });
       }
