@@ -1,4 +1,5 @@
 import HttpCodes from 'http-status-codes';
+import jwt from 'jsonwebtoken';
 
 import UserModel from '../../../models/userSchema.js';
 import { internalError } from '../../../helpers/helpers.js';
@@ -25,8 +26,28 @@ export class PutController {
         });
       }
 
+      const user = await UserModel.findOne({
+        _id: id,
+        isActive: true,
+      });
+
+      const userInfo = {
+        user: {
+          id: user._doc._id,
+          firstname: user._doc.firstname,
+          lastname: user._doc.lastname,
+          email: user._doc.email,
+          isAdmin: user._doc.isAdmin,
+        },
+      };
+
+      const token = jwt.sign(userInfo, process.env.SECRET_KEY, {
+        expiresIn: '1h',
+      });
+
       return res.json({
-        data: null,
+        data: userInfo.user,
+        token,
         message: 'Perfil actualizado correctamente',
       });
     } catch (e) {
