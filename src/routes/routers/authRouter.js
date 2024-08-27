@@ -6,10 +6,12 @@ import { post_loginValidationSchema } from '../../helpers/validationsSchemas/aut
 
 export const authRouter = express.Router();
 
-// POST ----------------------------
-// /api/v1/auth/login
 authRouter.post(
   '/login',
-  (req, res, next) => validateBody(req, res, next, post_loginValidationSchema),
-  Auth.PostController.postLogin,
+  (req, res, next) => {
+    validateBody(req, res, next, post_loginValidationSchema);
+  },
+  (req, res, next) => {
+    Auth.PostController.postLogin(req, res, next);
+  },
 );

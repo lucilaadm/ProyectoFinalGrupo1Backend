@@ -1,13 +1,11 @@
+import { DeleteController } from './controllers/DeleteController.js';
 import { GetController } from './controllers/GetController.js';
-import { GetEmailController } from './controllers/GetEmailController.js';
-import { GetIdController } from './controllers/GetIdController.js';
 import { PostController } from './controllers/PostController.js';
 import { PutController } from './controllers/PutController.js';
 
-export const Users = {
+export const Products = {
   GetController,
   PostController,
   PutController,
-  GetEmailController,
-  GetIdController,
+  DeleteController,
 };

@@ -9,7 +9,7 @@ export const isAuthenticated = (req, res, next) => {
   if (!authorizationHeader) {
     res.status(HttpCodes.UNAUTHORIZED).json({
       data: null,
-      message: 'Token no encontrado  la petición',
+      message: 'El Token no fue encontrado en la petición',
     });
     return;
   }

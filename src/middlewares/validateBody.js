@@ -6,11 +6,10 @@ export const validateBody = (req, res, next, validationSchema) => {
   const { error } = validationSchema.validate(body);
 
   if (error) {
-    // ERROR DE VALIDACION
     res.status(HttpCodes.BAD_REQUEST).json({
       data: null,
       message:
-        error.details[0].message || 'Ocurrió un error validando los campos',
+        error.details[0].message || 'Ocurrió un error al validar los campos',
     });
     return;
   }

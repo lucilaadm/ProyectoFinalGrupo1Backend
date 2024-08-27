@@ -8,12 +8,12 @@ import { isAdmin } from '../../middlewares/isAdmin.js';
 
 export const userRouter = express.Router();
 
-// GET ----------------------------
-// /api/v1/users/
 userRouter.get('/', isAuthenticated, isAdmin, Users.GetController.getUsers);
 
-// POST ----------------------------
-// /api/v1/users/ --> body= firstname, lastname, username and isAdmin
+userRouter.get('/check-email', Users.GetEmailController.checkEmailExists);
+
+userRouter.get('/:id', isAuthenticated, Users.GetIdController.getUserById);
+
 userRouter.post(
   '/',
   (req, res, next) =>
@@ -21,14 +21,4 @@ userRouter.post(
   Users.PostController.postUser,
 );
 
-/*
-// PUT ----------------------------
-userRouter.put(
-  '/:id',
-  isAuthenticated,
-  isAdmin,
-  (req, res, next) =>
-    validateBody(req, res, next, post_put_userValidationSchema),
-  Users.PutController.putBlog,
-);
-*/
+userRouter.put('/:id', isAuthenticated, Users.PutController.putUser);
