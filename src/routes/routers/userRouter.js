@@ -8,20 +8,12 @@ import { isAdmin } from '../../middlewares/isAdmin.js';
 
 export const userRouter = express.Router();
 
-// GET ----------------------------
-// /api/v1/users/
 userRouter.get('/', isAuthenticated, isAdmin, Users.GetController.getUsers);
 
-// GET User by Email----------------------------
-// /api/v1/users/check-email
 userRouter.get('/check-email', Users.GetEmailController.checkEmailExists);
 
-// GET User by ID----------------------------
-// /api/v1/users/check-email
 userRouter.get('/:id', isAuthenticated, Users.GetIdController.getUserById);
 
-// POST ----------------------------
-// /api/v1/users/ --> body= firstname, lastname, username and isAdmin
 userRouter.post(
   '/',
   (req, res, next) =>
@@ -29,5 +21,4 @@ userRouter.post(
   Users.PostController.postUser,
 );
 
-// PUT ----------------------------
 userRouter.put('/:id', isAuthenticated, Users.PutController.putUser);

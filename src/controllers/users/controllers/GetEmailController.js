@@ -3,7 +3,6 @@ import UsersModel from '../../../models/userSchema.js';
 import { internalError } from '../../../helpers/helpers.js';
 
 export class GetEmailController {
-  // Endpoint público para verificar si un correo ya existe
   static async checkEmailExists(req, res) {
     try {
       const { email } = req.query;
