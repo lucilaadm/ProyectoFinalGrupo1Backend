@@ -5,6 +5,8 @@ export class PostController {
     const { body } = req;
 
     const newOrder = new OrderModel({
+      dateTime: body.dateTime,
+      userId: body.userId,
       tableNumber: body.tableNumber,
       totalPrice: body.totalPrice,
       products: body.products.map((product) => ({
