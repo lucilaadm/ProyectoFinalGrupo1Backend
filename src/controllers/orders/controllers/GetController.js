@@ -1,13 +1,18 @@
 import OrdersModel from '../../../models/orderSchema.js';
 
 export class GetController {
-  static async getOrders(_, res) {
+  static async getOrders(req, res) {
     try {
-      const data = await OrdersModel.find();
+      const { userId } = req.query;
+
+      const filter = userId ? { userId } : {};
+      const data = await OrdersModel.find(filter);
 
       const filteredData = data.map((order) => {
         return {
-          id: order._doc._id,
+          orderId: order._doc._id,
+          dateTime: order._doc.dateTime,
+          userId: order._doc.userId,
           tableNumber: order._doc.tableNumber,
           totalPrice: order._doc.totalPrice,
           products: order._doc.products.map((product) => ({
